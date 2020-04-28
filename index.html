@@ -36,7 +36,7 @@
   ======================================================= -->
 </head>
 
-<body>
+<body onload="htmlStuff();">
 
   <div id="wrapper">
 
@@ -711,6 +711,29 @@
   <!-- Template Custom JavaScript File -->
   <script src="js/custom.js"></script>
 
+  <script>
+  function htmlStuff() {
+        // const axios = require('axios');
+        axios
+          .get(
+            "https://raw.githubusercontent.com/codewnw/z-backend/master/header.html"
+          )
+          .then(function (response) {
+            // handle success
+            console.log(response.data);
+            document.getElementById("hdr").innerHTML =response.data;
+      
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+            console.log("test");
+          });
+      }
+  </script>
 </body>
 
 </html>
